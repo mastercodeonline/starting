@@ -63,3 +63,39 @@ int test(void){
     dfs(&(arr[x]));
     return 0;
 }
+//上面是建立前序和后序的方法
+//下面是建立中序的方法
+//这里求的是中序遍历的可能性
+int re=1;
+void dfs(string a,string b){
+    if(a.length()<=1){
+        return;
+    }
+    for(int i=0;i<a.length();i++){
+        if(a[1]==b[i]){
+            if(i==a.length()-2){
+                re*=2;
+                a.erase(0,1);
+                b.erase(i+1,1);
+                dfs(a,b);
+            }else{
+                string a1=a.substr(1,i+1);
+                string a2=a.substr(i+2);
+                b.erase(a.length()-1);
+                string b1=b.substr(0,i+1);
+                string b2=b.substr(i+1);
+                dfs(a1,b1);
+                dfs(a2,b2);
+            }
+        }
+    }
+}
+int test(void){
+    string a;
+    string b;
+    freopen("input.in","r",stdin);
+    cin>>a>>b;
+    dfs(a,b);
+    cout<<re;
+    return 0;
+}

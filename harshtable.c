@@ -17,6 +17,30 @@ unsigned int SDBMHash(char *str)
  
     return (hash & 0x7FFFFFFF);
 }
+//可以设计好几个求模的数，建立多个哈希函数
+int bas=131;
+unsigned long long harsh(char*str){
+    int n=strlen(str);
+    int ans=0;
+    for(int i=0;i<n;i++){
+        ans=(ans*bas+str[i])%212370440130137957ll;
+    }
+    return ans;
+}
+
+
+//自然溢出
+unsigned long long harsh2(char*str){
+    int n=strlen(str);
+    int ans=0;
+    for(int i=0;i<n;i++){
+        ans=ans*bas+str[i];
+    }
+    return ans&0x7fffffff;
+}
+
+
+
 int arr[100005][2];
 int test(void){
     int n,m;

@@ -12,6 +12,10 @@
 //3））记录每棵树的权值（此为元素个数），权值大的树做新树的根，（由于一开始建立，所以可以知道
 //元素越多，深度必大），只有深度相同时新树的深度增加
 //这里采用三种方式分别实现
+inline int get(int x){
+    if(x==s[x])return x;
+    return s[x]=get(s[x]);//路径压缩
+}
 using namespace std;
 //方法1 103ms
 //int arr[5005];

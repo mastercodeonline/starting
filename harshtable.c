@@ -141,6 +141,63 @@ O(1)进行判断了。
 6
 4
 2 
+//处理哈希冲突的方法——————后寻址法
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define hmod 4698571    //对于Hash数组的mod值
+inline ll read();
+
+ll Hash[hmod+123456];   //Hash需开大一点
+
+inline bool find(ll x)
+{
+	ll wh=abs(x%hmod);   //对于负数只需处理一个定值即可，表示位置
+	while (Hash[wh]!=1808504320951916825)//如果当前位置有数
+	{
+		if (Hash[wh]==x) //查看是否为此数
+			return true; //返回true
+		else
+			++wh;      //否则查找下一个位置
+	}
+	Hash[wh]=x;       //没找到则放入Hash中
+	return false;      //返回false
+}
+
+ll t,n;
+
+int main()
+{
+	t=read();
+	while (t--)
+	{
+		memset(Hash,25,sizeof(Hash));//每次将Hash赋初始值，此时Hash中的值正是1808504320951916825（随便乱赋的值）
+		n=read();
+		for (register int i=1;i<=n;++i)
+		{
+			ll k=read(); //每次读入k
+			if (!find(k))//如果k没进入数组
+				cout<<k<<" ";//输出（"放入"已经在函数中执行了）
+		}
+		cout<<endl;     //回行
+	}
+	return 0;
+}
+
+inline ll read()		//快读（不解释了）
+{
+	ll x=0,f=0;
+	char c=getchar();
+	while (!isdigit(c))
+		f|=c=='-',c=getchar();
+	while (isdigit(c))
+		x=(x<<1)+(x<<3)+(c^48),c=getchar();
+	return f?-x:x;
+}
+
+
+
+
 6
  4进行取模，如果出题人比较良心，这种做法也不会被卡，但这个是完全可以卡的，卡的方法参见BZOJ 3097 Hash Killer I。
 */

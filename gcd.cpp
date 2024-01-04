@@ -9,6 +9,11 @@ using namespace std;
 //gcd(a,b)=c<-->gcd(a/c,b/c)==1;
 //基于以上结论
 //gcd(c/a,c/b)=1<-->c 为a b 的最小公倍数
+//gcd的一般写法
+int gcd(int a,int b)
+{
+	return b?gcd(b,a%b):a;
+}
 int judge(int x,int y){
     if(y==1){
         return 1;

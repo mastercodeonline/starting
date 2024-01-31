@@ -3,6 +3,7 @@
 #include<cstdlib>
 #include<map>
 #include<cmath>
+//应用情况：求第k小的数
 typedef long long ll;
 using namespace std;
 int num[2005];

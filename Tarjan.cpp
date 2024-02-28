@@ -4,6 +4,7 @@
 #include<cstring>
 #include<stack>
 #include<cmath>
+//Tarjan用于有向图判环，无向图判环用并查集
 //前置知识
 //搜索树（进行DFS,且每个点只访问一次搜形成的树）
 //1）搜索树不唯一

@@ -26,3 +26,4 @@ while(l<=r){
             ans=max(x1,ans);
         }
     }
+CF 924 D

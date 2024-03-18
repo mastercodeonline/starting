@@ -1,0 +1,28 @@
+二分与三分
+1）二分
+适用于求特定值
+以及解决有单调性的答案
+2）三分
+适用单峰函数（可能退化为单调，要特判）
+两个mid中，要注意l ,r一般不全错一个，不然有可能错过答案
+while(l<=r){
+        long long x1=f(mid1,n,b,c);
+        long long x2=f(mid2,n,b,c);
+        if(x1>x2){
+            r=mid2;//没有-1
+            mid1=l+(r-l)/3;
+            mid2=l+2*(r-l)/3;
+            ans=max(ans,x1);
+        }else if(x2>x1){
+            l=mid1+1;
+            mid1=l+(r-l)/3;
+            mid2=l+2*(r-l)/3;
+            ans=max(ans,x2);
+        }else{
+            l=mid1+1;
+            r=mid2;//这里没有-1
+            mid1=l+(r-l)/3;
+            mid2=l+2*(r-l)/3;
+            ans=max(x1,ans);
+        }
+    }

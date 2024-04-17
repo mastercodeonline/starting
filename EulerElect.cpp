@@ -4,6 +4,9 @@
 #include<unordered_set>
 #include<cstring>
 using namespace std;
+//素数和合数的性质
+//每个和数一定n^(1/2)范围内有因子
+//例题素数密度
 //素数筛选
 //1 埃氏筛
 /*

@@ -78,5 +78,6 @@
     用一个lazy和两个add数组 maxadd和otheradd，
     如果是加减，两个数组同时修改，不然只需修改maxadd
     (2) 同时维护历史最值
+    用history记录历史最值
     利用一个historyamaxadd和otheradd，这两个上面的值维护最大值（除非下发清空），
     前面两个维护真实值，实现查询
